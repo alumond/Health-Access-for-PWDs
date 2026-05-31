@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inclusive Healthcare Access | Disability Survey Dashboard</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app" aria-labelledby="app-title">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Nigeria Disability-Inclusive Healthcare Survey</p>
+          <h1 id="app-title">Access is the service delivery gap.</h1>
+          <p class="lede">
+            Interactive M&E analysis of healthcare access, communication support, affordability, stigma,
+            and service quality for persons with disabilities across Nigerian states.
+          </p>
+        </div>
+        <section class="hero-panel" aria-label="Headline findings">
+          <div>
+            <span class="label">Survey records</span>
+            <strong id="records-count">0</strong>
+          </div>
+          <div>
+            <span class="label">Average quality score</span>
+            <strong id="avg-quality">0.0/5</strong>
+          </div>
+          <div>
+            <span class="label">Primary risk signal</span>
+            <strong id="risk-signal">-</strong>
+          </div>
+        </section>
+      </header>
+
+      <section class="filters" aria-label="Dashboard filters">
+        <label>
+          State
+          <select id="state-filter"></select>
+        </label>
+        <label>
+          Disability group
+          <select id="disability-filter"></select>
+        </label>
+        <label>
+          Facility level
+          <select id="facility-filter"></select>
+        </label>
+        <label>
+          Barrier focus
+          <select id="barrier-filter"></select>
+        </label>
+        <button id="reset-button" type="button">Reset view</button>
+      </section>
+
+      <section class="insight-strip" aria-label="Indicator performance">
+        <article class="metric-card" data-status="red">
+          <span class="label">Sign language interpreters</span>
+          <strong id="kpi-interpreters">0%</strong>
+          <p id="kpi-interpreters-note">Actual first, then performance against inclusive service target.</p>
+        </article>
+        <article class="metric-card" data-status="amber">
+          <span class="label">Accessible information formats</span>
+          <strong id="kpi-materials">0%</strong>
+          <p id="kpi-materials-note">Braille, large print, audio, or simplified formats.</p>
+        </article>
+        <article class="metric-card" data-status="red">
+          <span class="label">Financial difficulty</span>
+          <strong id="kpi-finance">0%</strong>
+          <p id="kpi-finance-note">Share reporting cost barriers to care.</p>
+        </article>
+        <article class="metric-card" data-status="amber">
+          <span class="label">Accessible visit experience</span>
+          <strong id="kpi-accessible">0%</strong>
+          <p id="kpi-accessible-note">Respondents reporting the last hospital visit was accessible.</p>
+        </article>
+      </section>
+
+      <section class="narrative-grid">
+        <article class="analysis-card span-7">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">Geographic concentration</p>
+              <h2>Where access pressure is showing up</h2>
+            </div>
+            <span class="chart-caption">State ranking by respondent volume and average service quality</span>
+          </div>
+          <div id="state-chart" class="chart state-chart" role="img" aria-label="State ranking chart"></div>
+        </article>
+
+        <article class="analysis-card span-5">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">Service pathway</p>
+              <h2>Facility levels used most</h2>
+            </div>
+            <span class="chart-caption">Primary, secondary, and tertiary utilization</span>
+          </div>
+          <div id="facility-donut" class="chart donut-chart" role="img" aria-label="Facility utilization donut chart"></div>
+        </article>
+      </section>
+
+      <section class="narrative-grid">
+        <article class="analysis-card span-6">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">Barrier diagnostics</p>
+              <h2>What prevents equitable care</h2>
+            </div>
+            <span class="chart-caption">Actual values are shown first; target line is 80%</span>
+          </div>
+          <div id="barrier-bars" class="chart barrier-chart" role="img" aria-label="Barrier performance chart"></div>
+        </article>
+
+        <article class="analysis-card span-6">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">Intersectional view</p>
+              <h2>Disability group by barrier exposure</h2>
+            </div>
+            <span class="chart-caption">Darker cells indicate higher reported barrier load</span>
+          </div>
+          <div id="heatmap" class="chart heatmap" role="img" aria-label="Disability and barrier heatmap"></div>
+        </article>
+      </section>
+
+      <section class="narrative-grid">
+        <article class="analysis-card span-5">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">Quality of care</p>
+              <h2>Ratings are polarized</h2>
+            </div>
+            <span class="chart-caption">Scale: 1 very poor to 5 excellent</span>
+          </div>
+          <div id="quality-chart" class="chart quality-chart" role="img" aria-label="Quality rating distribution"></div>
+        </article>
+
+        <article class="analysis-card span-7">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">Survey pulse</p>
+              <h2>Responses accelerated in May 2026</h2>
+            </div>
+            <span class="chart-caption">Monthly survey volume and average quality</span>
+          </div>
+          <div id="time-chart" class="chart time-chart" role="img" aria-label="Monthly response trend chart"></div>
+        </article>
+      </section>
+
+      <section class="narrative-grid">
+        <article class="analysis-card span-7">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">Voice of respondents</p>
+              <h2>What people are asking for</h2>
+            </div>
+            <span class="chart-caption">Bubble size represents theme frequency</span>
+          </div>
+          <div id="theme-bubbles" class="chart theme-chart" role="img" aria-label="Qualitative recommendation themes"></div>
+        </article>
+
+        <article class="analysis-card span-5 decision-card">
+          <p class="eyebrow">M&E interpretation</p>
+          <h2>Priority actions for the next management cycle</h2>
+          <div id="executive-actions"></div>
+        </article>
+      </section>
+
+      <section class="risk-grid" aria-label="Risk and bottleneck analysis">
+        <article class="risk-box red">
+          <span class="label">Critical bottleneck</span>
+          <h3>Communication support is not institutionalized.</h3>
+          <p>
+            Sign language interpretation and accessible health materials are the clearest system gap.
+            This weakens informed consent, diagnosis quality, and trust in public facilities.
+          </p>
+        </article>
+        <article class="risk-box amber">
+          <span class="label">Delivery risk</span>
+          <h3>Physical access remains inconsistent.</h3>
+          <p>
+            Respondents repeatedly mention ramps, narrow doors, stairs, toilets, long queues,
+            and lack of navigation support. Accessibility is not yet a facility standard.
+          </p>
+        </article>
+        <article class="risk-box red">
+          <span class="label">Equity risk</span>
+          <h3>Cost is suppressing healthcare use.</h3>
+          <p>
+            Financial difficulty is high even where insurance awareness exists. Subsidy design,
+            enrolment support, and disability-specific benefits require immediate review.
+          </p>
+        </article>
+      </section>
+
+      <section class="method-note" aria-label="Methodology note">
+        <strong>Method note:</strong>
+        Dashboard figures are generated from a cleaned and normalized respondent-level version of the
+        pasted survey responses. Percentages describe this respondent sample and are intended for M&E
+        diagnosis, prioritization, and donor discussion rather than population prevalence estimation.
+      </section>
+    </main>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
