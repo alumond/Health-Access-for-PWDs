@@ -130,8 +130,9 @@ p {
   display: block;
   margin-top: 14px;
   color: var(--ink);
-  font-size: clamp(1.4rem, 2.6vw, 2.35rem);
-  line-height: 1;
+  font-size: clamp(1.25rem, 1.5vw, 1.45rem);
+  line-height: 1.05;
+  overflow-wrap: anywhere;
 }
 
 .filters {
